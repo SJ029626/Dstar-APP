@@ -83,7 +83,7 @@ it('can add the star name and star symbol properly', async() => {
     await instance.createStar('awesome star', tokenId, {from: accounts[0]});
     const name = assert.equal('SuperStar', await instance.name.call());
     const symbol = assert.equal('SST', await instance.symbol.call());
-    const name_symbol = name === 'SuperStar' && symbol === 'SST';
+    const name_symbol = await instance.name.call() === 'SuperStar' && await instance.symbol.call === 'SST';
     assert.isTrue(name_symbol);
 });
 
@@ -98,10 +98,10 @@ it('lets 2 users exchange stars', async() => {
     let instance = await StarNotary.deployed();
     await instance.createStar('Awesome Star!', tokenId_1, {from: user_a});// create Stars 
     await instance.createStar('Great Awesome Star!', tokenId_2, {from: user_b});// create Stars 
-    await instance.exchangeStars(tokenId_1, tokenId_2, {from: user1}); // exchangeStars functions
+    await instance.exchangeStars(tokenId_1, tokenId_2, {from: user_a}); // exchangeStars functions
     const starUser1 = await instance.ownerOf.call(tokenId_1);
     const starUser2 = await instance.ownerOf.call(tokenId_2);
-    assert.isTrue(starUser1 === user_a && starUser2 === user_b); // assert to owners changed
+    assert.isTrue(starUser1 === user_b && starUser2 === user_a); // assert to owners changed
 });
 
 it('lets a user transfer a star', async() => {
