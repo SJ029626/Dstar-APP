@@ -14,7 +14,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "openzeppelin-solidity": "^3.0.2",
+    "openzeppelin-solidity": "^3.4.2",
     "truffle": "^5.1.31",
     "truffle-hdwallet-provider": "^1.0.17",
     "web3": "^1.2.9"
